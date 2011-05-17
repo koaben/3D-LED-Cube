@@ -1,0 +1,63 @@
+html, body {
+	background  : #000;
+	padding     : 0px;
+	margin      : 0px;
+	font-family : arial;
+}
+
+#viewport{
+    position            : absolute;
+    top                 : 0px;
+	right               : 200px;
+	bottom              : 0px;
+    left                : 0px;
+    -webkit-perspective : 1200;
+}
+
+#moveable{
+    width                   : 100%;
+    height                  : 100%;
+    -webkit-transform-style : preserve-3d;
+    -webkit-transform       : translate3d(0, 0, 0);
+}
+
+#cube {
+    position                 : absolute;
+	top                      : 200px;
+    left                     : 400px;
+    -webkit-transform-origin : 200px 200px 200px;
+    -webkit-transform        : rotateX(0) rotateY(0);
+	-webkit-transform-style  : preserve-3d;
+    /*-webkit-animation: spin 25s infinite linear;*/
+}
+
+.LED{
+	position                : absolute;
+	-webkit-transform-style : preserve-3d;
+}
+
+.LED div {
+	width                   : 5px;
+	height                  : 5px;
+	-webkit-box-shadow      : 0 0 1px #333, 0 0 1px #333, 0 0 1px #333;
+	-webkit-border-radius   : 5px;
+}
+
+.LED.on div {
+	-webkit-box-shadow : 0 0 20px #00F, 0 0 10px #99F, 0 0 5px #FFF;
+}
+
+#navigation {
+	position    : absolute;
+	top         : 0px;
+	right       : 0px;
+	bottom      : 0px;
+	width       : 200px;
+	background  : #EEE;
+	margin      : 0px;
+	padding     : 10px;
+}
+
+#navigation li {
+	list-style-type : none;
+}

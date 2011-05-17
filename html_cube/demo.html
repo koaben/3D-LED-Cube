@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/demo.css" type="text/css" />
+</head>
+<body>
+	<div id="viewport">
+		<div id="moveable">
+			<div id="cube"></div>
+		</div>
+	</div>
+	<ul id="navigation"></ul>
+
+	<script type="text/javascript" src="js/cube.js"></script>
+	<script type="text/javascript" src="js/animations.js"></script>
+	<script>
+	// Load new animations here
+	animations
+		.load('planes', 'rain')
+		.setDimensions(8, 8, 8)
+		.init();
+	</script>
+</body>
+</html>
