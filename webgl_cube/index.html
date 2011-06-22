@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/nav.css" type="text/css" />
+	<script type="text/javascript" src="externals/three/examples/js/RequestAnimationFrame.js"></script>
+	<script type="text/javascript" src="externals/three/build/Three.js"></script>
+</head>
+<body>
+	<ul id="navigation" style="display:none;"></ul>
+
+	<script type="text/javascript" src="../animations/utils.js"></script>
+	<script type="text/javascript" src="js/cube.js"            ></script>
+	<script type="text/javascript" src="js/animations.js"      ></script>
+	<script>
+	// Load new animations here
+	animations
+		.load('rain')
+		.setDimensions(8, 8, 8)
+		.init();
+	</script>
+</body>
+</html>

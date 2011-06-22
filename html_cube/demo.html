@@ -9,14 +9,15 @@
 			<div id="cube"></div>
 		</div>
 	</div>
-	<ul id="navigation"></ul>
+	<ul id="navigation" style="display:none;"></ul>
+	<textarea id="console"></textarea>
 
 	<script type="text/javascript" src="js/cube.js"></script>
 	<script type="text/javascript" src="js/animations.js"></script>
 	<script>
 	// Load new animations here
 	animations
-		.load('planes', 'rain')
+		.load('planes', 'rain', 'center_sine_wave')
 		.setDimensions(8, 8, 8)
 		.init();
 	</script>

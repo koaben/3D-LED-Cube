@@ -29,25 +29,25 @@ var animations = {
 		this.points = [];
 
 		// create all of the LEDs
-		for(z=0; z<this.z; z++){
-			layer = [];
-			for(x=0; x<this.x; x++){
-				row = [];
-				for(y=0; y<this.y; y++){
-					point               = document.createElement('DIV');
-					point.className     = 'LED';
-					point.style.cssText = '-webkit-transform: translate3d(' + (spacing * y) + 'px, ' + (spacing * (this.z-z-1)) + 'px, ' + (spacing * x) + 'px)';
-
-					point.appendChild(document.createElement('DIV'));
-
-					cube.appendChild(point);
-
-					row.push(point);
-				}
-				layer.push(row);
-			}
-			this.points.push(layer);
-		}
+		// for(z=0; z<this.z; z++){
+		// 	layer = [];
+		// 	for(x=0; x<this.x; x++){
+		// 		row = [];
+		// 		for(y=0; y<this.y; y++){
+		// 			point               = document.createElement('DIV');
+		// 			point.className     = 'LED';
+		// 			point.style.cssText = '-webkit-transform: translate3d(' + (spacing * y) + 'px, ' + (spacing * (this.z-z-1)) + 'px, ' + (spacing * x) + 'px)';
+		// 
+		// 			point.appendChild(document.createElement('DIV'));
+		// 
+		// 			cube.appendChild(point);
+		// 
+		// 			row.push(point);
+		// 		}
+		// 		layer.push(row);
+		// 	}
+		// 	this.points.push(layer);
+		// }
 
 		// create the navigation
 		for(var i=0, l=this.animations.length; i<l; i++){
@@ -87,12 +87,13 @@ var animations = {
 	},
 
 	startAnimation : function(){
-		var self = this;
+		var self = this,
+		    cube = new Cube(this.x, this.y, this.z);
 
-		this.frames   = this.currentAnimation.getAnimation(this.x, this.y, this.z);
+		this.frames   = this.currentAnimation.getAnimation(cube);
 		this.curFrame = 0;
 
-		this.interval = setInterval(function(){ self.nextFrame(); }, this.currentAnimation.refresh);
+		//this.interval = setInterval(function(){ self.nextFrame(); }, this.currentAnimation.refresh);
 	},
 
 	stopAnimation : function(){

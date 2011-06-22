@@ -6,29 +6,29 @@ html, body {
 }
 
 #viewport{
-    position            : absolute;
-    top                 : 0px;
+	position            : absolute;
+	top                 : 0px;
 	right               : 200px;
 	bottom              : 0px;
-    left                : 0px;
-    -webkit-perspective : 1200;
+	left                : 0px;
+	-webkit-perspective : 1200;
 }
 
 #moveable{
-    width                   : 100%;
-    height                  : 100%;
-    -webkit-transform-style : preserve-3d;
-    -webkit-transform       : translate3d(0, 0, 0);
+	width                   : 100%;
+	height                  : 100%;
+	-webkit-transform-style : preserve-3d;
+	-webkit-transform       : translate3d(0, 0, 0);
 }
 
 #cube {
-    position                 : absolute;
+	position                 : absolute;
 	top                      : 200px;
-    left                     : 400px;
-    -webkit-transform-origin : 200px 200px 200px;
-    -webkit-transform        : rotateX(0) rotateY(0);
+	left                     : 400px;
+	-webkit-transform-origin : 200px 200px 200px;
+	-webkit-transform        : rotateX(0) rotateY(0);
 	-webkit-transform-style  : preserve-3d;
-    /*-webkit-animation: spin 25s infinite linear;*/
+	-webkit-animation        : spin 25s infinite linear;
 }
 
 .LED{
@@ -45,6 +45,7 @@ html, body {
 
 .LED.on div {
 	-webkit-box-shadow : 0 0 20px #00F, 0 0 10px #99F, 0 0 5px #FFF;
+	background         : #99F;
 }
 
 #navigation {
@@ -60,4 +61,15 @@ html, body {
 
 #navigation li {
 	list-style-type : none;
+}
+
+#console {
+	position   : absolute;
+	left       : 0px;
+	right      : 0px;
+	bottom     : 0px;
+	height     : 100px;
+	background : #FFF;
+	border     : 0px;
+	margin     : 0px;
 }
