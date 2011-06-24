@@ -88,9 +88,10 @@ var animations = {
 
 	startAnimation : function(){
 		var self = this;
+		this.cube = new Cube(this.x, this.y, this.z);
 
-		this.frames   = this.currentAnimation.getAnimation(this.x, this.y, this.z);
-		this.curFrame = 0;
+		this.currentAnimation.getAnimation(this.cube);
+		this.cube.getFrame(0);
 
 		this.interval = setInterval(function(){ self.nextFrame(); }, this.currentAnimation.refresh);
 	},
@@ -100,18 +101,19 @@ var animations = {
 	},
 
 	nextFrame : function(){
-		var frame = this.frames[this.curFrame++];
-		if(!frame){
+		if(this.cube.frame == this.cube.frames.length - 1){
 			this.selectAnimation(this.__currentAnimation);
 			return;
 		}
 
-		for(var z=0; z<this.z; z++){
-			for(var x=0; x<this.x; x++){
-				for(var y=0; y<this.y; y++){
-					this.points[z][x][y].className = 'LED' + (frame[z][x][y] ? ' on' : '');
+		for(var x=0; x<this.x; x++){
+			for(var y=0; y<this.y; y++){
+				for(var z=0; z<this.z; z++){
+					this.points[z][x][y].className = 'LED' + (this.cube.getVoxel(x, y, z) ? ' on' : '');
 				}
 			}
 		}
+
+		this.cube.nextFrame();
 	}
 };

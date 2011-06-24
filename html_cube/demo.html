@@ -10,14 +10,15 @@
 		</div>
 	</div>
 	<ul id="navigation" style="display:none;"></ul>
-	<textarea id="console"></textarea>
 
+	<script>window.CUBE = { size : [8, 8, 8] };</script>
+	<script type="text/javascript" src="../animations/utils.js"></script>
 	<script type="text/javascript" src="js/cube.js"></script>
 	<script type="text/javascript" src="js/animations.js"></script>
 	<script>
 	// Load new animations here
 	animations
-		.load('planes', 'rain', 'center_sine_wave')
+		.load('rain', 'center_sine_wave', 'planes'/*, 'spinning_line'*/, 'game_of_life')
 		.setDimensions(8, 8, 8)
 		.init();
 	</script>

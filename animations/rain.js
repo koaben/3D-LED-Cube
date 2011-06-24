@@ -2,7 +2,7 @@
 	name    : 'Rain',
 	refresh : 50, // ms -- maximum refresh = 58fps or 17ms
 
-	getAnimation : function(cube){
+	getAnimation : function( cube ){
 		var maxFrame = 200,
 		  minPercent = .01, // percent of cells generating a new drop
 		  maxPercent = .1

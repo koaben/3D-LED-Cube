@@ -5,7 +5,6 @@
 	var moveable = document.getElementById('moveable'),
 	        cube = document.getElementById('cube'),
 	         nav = document.getElementById('navigation'),
-	  txtConsole = document.getElementById('console'),
 	    dragging = false,
 	        rotX = 0,
 	        rotY = 0,
@@ -21,8 +20,6 @@
 
 	function bodyMouseMove(ev){
 		nav.style.display = 'block';
-
-		txtConsole.value += ev.pageX + ', ' + ev.pageY + '\n';
 	}
 
 	function mouseDown(ev){

@@ -12,10 +12,10 @@ var animations = {
 		return this;
 	},
 
-	setDimensions : function(x, y, z){
-		this.x = x;
-		this.y = y;
-		this.z = z;
+	setDimensions : function( size ){
+		this.x = size[0];
+		this.y = size[1];
+		this.z = size[2];
 
 		return this;
 	},
@@ -27,27 +27,6 @@ var animations = {
 		    x, y, z, layer, row, point, randLI;
 
 		this.points = [];
-
-		// create all of the LEDs
-		// for(z=0; z<this.z; z++){
-		// 	layer = [];
-		// 	for(x=0; x<this.x; x++){
-		// 		row = [];
-		// 		for(y=0; y<this.y; y++){
-		// 			point               = document.createElement('DIV');
-		// 			point.className     = 'LED';
-		// 			point.style.cssText = '-webkit-transform: translate3d(' + (spacing * y) + 'px, ' + (spacing * (this.z-z-1)) + 'px, ' + (spacing * x) + 'px)';
-		// 
-		// 			point.appendChild(document.createElement('DIV'));
-		// 
-		// 			cube.appendChild(point);
-		// 
-		// 			row.push(point);
-		// 		}
-		// 		layer.push(row);
-		// 	}
-		// 	this.points.push(layer);
-		// }
 
 		// create the navigation
 		for(var i=0, l=this.animations.length; i<l; i++){
@@ -87,13 +66,13 @@ var animations = {
 	},
 
 	startAnimation : function(){
-		var self = this,
-		    cube = new Cube(this.x, this.y, this.z);
+		var self = this;
+		this.cube = new Cube(this.x, this.y, this.z);
 
-		this.frames   = this.currentAnimation.getAnimation(cube);
-		this.curFrame = 0;
+		this.currentAnimation.getAnimation(this.cube);
+		this.cube.getFrame(0);
 
-		//this.interval = setInterval(function(){ self.nextFrame(); }, this.currentAnimation.refresh);
+		this.interval = setInterval(function(){ self.nextFrame(); }, this.currentAnimation.refresh);
 	},
 
 	stopAnimation : function(){
@@ -101,18 +80,19 @@ var animations = {
 	},
 
 	nextFrame : function(){
-		var frame = this.frames[this.curFrame++];
-		if(!frame){
+		if(this.cube.frame == this.cube.frames.length - 1){
 			this.selectAnimation(this.__currentAnimation);
 			return;
 		}
 
-		for(var z=0; z<this.z; z++){
-			for(var x=0; x<this.x; x++){
-				for(var y=0; y<this.y; y++){
-					this.points[z][x][y].className = 'LED' + (frame[z][x][y] ? ' on' : '');
+		for(var x=0; x<this.x; x++){
+			for(var y=0; y<this.y; y++){
+				for(var z=0; z<this.z; z++){
+					CUBE.LEDs[x][z][y]['turn' + (this.cube.getVoxel(x, y, z) ? 'On' : 'Off')]();
 				}
 			}
 		}
+
+		this.cube.nextFrame();
 	}
 };
