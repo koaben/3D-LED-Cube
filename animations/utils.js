@@ -2,6 +2,7 @@
 	/**
 	 * Creates an instance of a Cube animation
 	 * @class
+	 * @name Cube
 	 * @param x {Number} width of cube
 	 * @param y {Number} depth of cube
 	 * @param z {Number} height of cube
@@ -104,8 +105,10 @@
 		}
 	}
 
+	cubeFrame.prototype =
+
 	/** @lends Cube.prototype */
-	cubeFrame.prototype = {
+	{
 		/** @private */
 		inRange : function(x, y, z){
 			return !(x<0 || x>=this.size.x || y<0 || y>=this.size.y || z<0 || z>=this.size.z);
