@@ -1,13 +1,12 @@
 (function(){
 	/**
 	 * Creates an instance of a Cube animation
-	 * @class Represents a cube animation
+	 * @class
 	 * @param x {Number} width of cube
 	 * @param y {Number} depth of cube
 	 * @param z {Number} height of cube
 	 */
 	function Cube(x, y, z){
-		/** @lends Cube */
 		if(Math.max(x, y, z) > 32){
 			throw new Error('Maximum cube dimension is 32');
 		}
@@ -38,13 +37,15 @@
 		},
 
 		/**
-		 * Sets the cube to the next frame of animation.  Will automatically create new frames as necessary.
+		 * Sets the cube to the next frame of animation.
+		 * Will automatically create new frames as necessary.
 		 * @param {Boolean} [duplicateCurrent=false] Duplicate the current frame when creating the next one.  If false, creates empty frames when necessary.
 		 */
 		nextFrame : function(duplicateCurrent){ return getFrame.call(this, this.frame + 1, duplicateCurrent && this.frames[this.frame]); },
 
 		/**
-		 * Sets the cube to the previous frame of animation.  Will automatically create new frames as necessary.
+		 * Sets the cube to the previous frame of animation.
+		 * Will automatically create new frames as necessary.
 		 * @param {Boolean} [duplicateCurrent=false] Duplicate the current frame when creating a previous one.  If false, creates empty frames when necessary.
 		 */
 		prevFrame : function(duplicateCurrent){ return getFrame.call(this, this.frame - 1, duplicateCurrent && this.frames[this.frame]); }
@@ -254,11 +255,11 @@
 		 * @param {String} (x|y|z) axis
 		 * @param {Number} plane
 		 */
-		setPlane : function(axis, plane){
+		clearPlane : function(axis, plane){
 			switch(axis){
-				case 'x' : writePlaneX.call(this, num, 0); break;
-				case 'y' : writePlaneY.call(this, num, 0); break;
-				case 'z' : writePlaneZ.call(this, num, 0); break;
+				case 'x' : clearPlaneX.call(this, num, 0); break;
+				case 'y' : clearPlaneY.call(this, num, 0); break;
+				case 'z' : clearPlaneZ.call(this, num, 0); break;
 			}
 
 			return this;
